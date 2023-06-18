@@ -1,6 +1,6 @@
 provider "aws" {
   region  = "us-east-1"
-  profile = "ebaah"
+  
 }
 
 # Create default VPC if one does not exist
@@ -91,13 +91,13 @@ resource "null_resource" "name" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("~/Downloads/MYEC2.pem")
+    private_key = file("~/file-path")
     host        = aws_instance.ec2_instance.public_ip
   }
 
   # Copy the install_jenkins.sh file from your computer to the EC2 instance 
   provisioner "file" {
-    source      = "/Users/emmanuelbaah/Documents/GitHub/Emmanuel-Terraform/ec2.sh"
+    source      = "/Users/file-path"
     destination = "/tmp/ec2.sh"
   }
 
@@ -218,13 +218,13 @@ resource "null_resource" "name" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("~/Downloads/MYEC2.pem")
+    private_key = file("~/File-Path")
     host        = aws_instance.ec2_instance.public_ip
   }
 
   # Copy the install_jenkins.sh file from your computer to the EC2 instance 
   provisioner "file" {
-    source      = "/Users/emmanuelbaah/Documents/GitHub/Emmanuel-Terraform/ec2.sh"
+    source      = "File-Path"
     destination = "/tmp/ec2.sh"
   }
 
