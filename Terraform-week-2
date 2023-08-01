@@ -184,4 +184,11 @@ resource "aws_autoscaling_group" "project_ags" {
   }
 }
 
+# Create S3 bucket for Jenkins
+resource "aws_s3_bucket" "baahemmanuel" {
+  bucket = "baahemmanuel"
+
+  # Set bucket ACL to private
+  acl = "private"
+}
 
